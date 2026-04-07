@@ -6,6 +6,7 @@
     <title>NITAINO SKOUT | Portal de Arqueología Robótica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.1/browser/pixi.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap');
@@ -975,7 +976,7 @@
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             container.appendChild(renderer.domElement);
 
-            // --- BUILD THE ZEMÍ TRIGONAL (Piedra Oscura) ---
+            // --- BUILD THE ZEMÍ FROM STL ---
             zemi = new THREE.Group();
 
             // Material de piedra oscura realista
@@ -986,95 +987,20 @@
                 flatShading: false
             });
 
-            // Crear forma base trigonal (tres puntas) - Geometría personalizada
-            function createTrigonalShape() {
-                const shape = new THREE.Shape();
-                // Base triangular
-                shape.moveTo(-1.5, 0);
-                shape.quadraticCurveTo(-1.6, 0.8, -0.8, 1.2);
-                shape.lineTo(0, 1.8); // Punta central alta
-                shape.lineTo(0.8, 1.2);
-                shape.quadraticCurveTo(1.6, 0.8, 1.5, 0);
-                shape.lineTo(-1.5, 0);
-                return shape;
-            }
-
-            // Crear geometría del zemi trigonal
-            const zemiPoints = [];
-            const segments = 32;
-            
-            // Forma base - tres puntas
-            for (let i = 0; i <= segments; i++) {
-                const t = i / segments;
-                const angle = t * Math.PI * 2;
-                const radius = 1 + 0.4 * Math.cos(3 * angle);
-                const x = Math.cos(angle) * radius;
-                const z = Math.sin(angle) * radius;
-                const y = 0.8 + 0.5 * Math.sin(3 * angle + Math.PI);
-                zemiPoints.push(new THREE.Vector2(x * 0.9, y));
-            }
-
-            const zemiGeo = new THREE.LatheGeometry(zemiPoints, 64);
-            zemiGeo.computeVertexNormals();
-
-            const zemiMesh = new THREE.Mesh(zemiGeo, stoneMaterial);
-            zemiMesh.castShadow = true;
-            zemiMesh.receiveShadow = true;
-            zemi.add(zemiMesh);
-
-            // --- CARAS GRABADAS (Ojos, Nariz, Boca) ---
-            const carvedMaterial = new THREE.MeshStandardMaterial({
-                color: 0x1a1816,
-                roughness: 0.95,
-                metalness: 0.05
+            const loader = new THREE.STLLoader();
+            loader.load('multimedia/Coqui_Taino.stl', (geometry) => {
+                geometry.computeVertexNormals();
+                geometry.center();
+                geometry.scale(0.5, 0.5, 0.5);
+                
+                const zemiMesh = new THREE.Mesh(geometry, stoneMaterial);
+                zemiMesh.castShadow = true;
+                zemiMesh.receiveShadow = true;
+                zemiMesh.rotation.x = -Math.PI / 2;
+                zemi.add(zemiMesh);
+                
+                scene.add(zemi);
             });
-
-            // Ojo izquierdo
-            const eyeGeoL = new THREE.SphereGeometry(0.12, 16, 16);
-            const eyeL = new THREE.Mesh(eyeGeoL, carvedMaterial);
-            eyeL.position.set(-0.35, 1.4, 0.65);
-            eyeL.scale.z = 0.3;
-            zemi.add(eyeL);
-
-            // Ojo derecho
-            const eyeGeoR = new THREE.SphereGeometry(0.12, 16, 16);
-            const eyeR = new THREE.Mesh(eyeGeoR, carvedMaterial);
-            eyeR.position.set(0.35, 1.4, 0.65);
-            eyeR.scale.z = 0.3;
-            zemi.add(eyeR);
-
-            // Nariz
-            const noseGeo = new THREE.ConeGeometry(0.08, 0.35, 8);
-            const nose = new THREE.Mesh(noseGeo, carvedMaterial);
-            nose.position.set(0, 1.1, 0.75);
-            nose.rotation.x = Math.PI;
-            zemi.add(nose);
-
-            // Boca
-            const mouthGeo = new THREE.TorusGeometry(0.15, 0.04, 8, 16, Math.PI);
-            const mouth = new THREE.Mesh(mouthGeo, carvedMaterial);
-            mouth.position.set(0, 0.85, 0.65);
-            mouth.rotation.x = Math.PI;
-            mouth.rotation.z = Math.PI;
-            zemi.add(mouth);
-
-            // Pestañas grabadas
-            for (let i = -1; i <= 1; i += 2) {
-                const lashGeo = new THREE.BoxGeometry(0.02, 0.15, 0.02);
-                const lash = new THREE.Mesh(lashGeo, carvedMaterial);
-                lash.position.set(i * 0.28, 1.45, 0.72);
-                zemi.add(lash);
-            }
-
-            // --- BASE / PEDESTAL ---
-            const baseGeo = new THREE.CylinderGeometry(0.9, 1.1, 0.3, 32);
-            const baseMesh = new THREE.Mesh(baseGeo, stoneMaterial);
-            baseMesh.position.y = -0.15;
-            baseMesh.castShadow = true;
-            baseMesh.receiveShadow = true;
-            zemi.add(baseMesh);
-
-            scene.add(zemi);
 
             // --- ASH PARTICLES (Embers) ---
             const ashCount = 150;

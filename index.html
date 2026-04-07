@@ -989,19 +989,15 @@
             for (let i = 0; i <= segments; i++) {
                 const t = i / segments;
                 const angle = t * Math.PI * 2;
-                const radius = 1 + 0.5 * Math.cos(3 * angle); // Forma trigonal
+                const radius = 1 + 0.4 * Math.cos(3 * angle);
                 const x = Math.cos(angle) * radius;
                 const z = Math.sin(angle) * radius;
-                const y = 0.8 + 0.6 * Math.sin(3 * angle + Math.PI); // Tres puntas
-                zemiPoints.push(new THREE.Vector2(x * 0.8, y));
+                const y = 0.8 + 0.5 * Math.sin(3 * angle + Math.PI);
+                zemiPoints.push(new THREE.Vector2(x * 0.9, y));
             }
 
             const zemiGeo = new THREE.LatheGeometry(zemiPoints, 64);
             zemiGeo.computeVertexNormals();
-
-            // Aplicar subdivisión para suavidad orgánica
-            const modifier = new THREE.SubdivisionModifier(2);
-            modifier.modify(zemiGeo);
 
             const zemiMesh = new THREE.Mesh(zemiGeo, stoneMaterial);
             zemiMesh.castShadow = true;

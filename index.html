@@ -354,22 +354,19 @@
             </div>
         </section>
 
-        <!-- Carrusel de Imágenes -->
-        <section class="max-w-full px-4 py-24 border-t border-stone-800">
+        <!-- Carrusel 3D de Imágenes -->
+        <section class="max-w-4xl mx-auto px-4 py-24 border-t border-stone-800">
             <h2 class="text-2xl text-center text-[#c5a059] mb-12 brand-font uppercase tracking-widest">Galería del Proyecto</h2>
-            <div class="relative">
-                <div id="carousel" class="overflow-hidden rounded-3xl h-[300px] md:h-[400px]">
-                    <div id="carousel-track" class="flex transition-transform duration-500 h-full">
-                    </div>
-                </div>
-                <button id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/60 rounded-full flex items-center justify-center text-[#c5a059] hover:bg-[#c5a059] hover:text-black transition">
+            <div id="gallery-3d-container" class="relative h-[300px] md:h-[400px] flex items-center justify-center"></div>
+            <div class="flex justify-center gap-4 mt-8">
+                <button id="gallery-prev" class="w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black hover:scale-110 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
-                <button id="carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/60 rounded-full flex items-center justify-center text-[#c5a059] hover:bg-[#c5a059] hover:text-black transition">
+                <div id="gallery-dots" class="flex items-center gap-2"></div>
+                <button id="gallery-next" class="w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black hover:scale-110 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
             </div>
-            <div id="carousel-dots" class="flex justify-center gap-2 mt-6"></div>
         </section>
     </main>
 
@@ -1145,8 +1142,8 @@
             });
         }
 
-        // Carrusel de imágenes
-        const carouselImages = [
+        // Galería 3D con Three.js
+        const galleryImages = [
             'multimedia/IMG_20260407_094956937.jpg',
             'multimedia/IMG_20260407_095027497_HDR.jpg',
             'multimedia/IMG_20260407_095042213_HDR.jpg',
@@ -1157,54 +1154,122 @@
             'multimedia/IMG-20260407-WA0015.jpg'
         ];
 
-        const carouselTrack = document.getElementById('carousel-track');
-        const carouselDots = document.getElementById('carousel-dots');
-        let currentSlide = 0;
+        let galleryScene, galleryCamera, galleryRenderer, galleryMeshes = [];
+        let galleryIndex = 0;
+        let isAnimating = false;
 
-        if (carouselTrack && carouselImages.length > 0) {
-            carouselImages.forEach((img, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'min-w-full relative h-full';
-                slide.innerHTML = `<img src="${img}" class="w-full h-full object-cover" alt="Galería ${index + 1}">`;
-                carouselTrack.appendChild(slide);
+        function initGallery3D() {
+            const container = document.getElementById('gallery-3d-container');
+            if (!container) return;
+            
+            const width = container.clientWidth || 600;
+            const height = container.clientHeight || 400;
 
-                const dot = document.createElement('button');
-                dot.className = 'w-3 h-3 rounded-full bg-stone-600 hover:bg-[#c5a059] transition';
-                dot.addEventListener('click', () => goToSlide(index));
-                carouselDots.appendChild(dot);
-            });
+            galleryScene = new THREE.Scene();
+            galleryCamera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+            galleryCamera.position.z = 5;
 
-            function goToSlide(index) {
-                currentSlide = index;
-                carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-                updateDots();
-            }
+            galleryRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            galleryRenderer.setSize(width, height);
+            container.appendChild(galleryRenderer.domElement);
 
-            function updateDots() {
-                const dots = carouselDots.querySelectorAll('button');
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('bg-[#c5a059]', i === currentSlide);
-                    dot.classList.toggle('bg-stone-600', i !== currentSlide);
+            const textureLoader = new THREE.TextureLoader();
+            
+            galleryImages.forEach((img, i) => {
+                const geometry = new THREE.PlaneGeometry(3.5, 2.5);
+                const material = new THREE.MeshBasicMaterial({
+                    map: textureLoader.load(img),
+                    transparent: true,
+                    opacity: 0
                 });
-            }
-
-            document.getElementById('carousel-prev').addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + carouselImages.length) % carouselImages.length;
-                goToSlide(currentSlide);
+                const mesh = new THREE.Mesh(geometry, material);
+                mesh.position.x = (i - galleryImages.length / 2) * 4;
+                mesh.userData.targetX = mesh.position.x;
+                mesh.userData.index = i;
+                galleryScene.add(mesh);
+                galleryMeshes.push(mesh);
             });
 
-            document.getElementById('carousel-next').addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % carouselImages.length;
-                goToSlide(currentSlide);
-            });
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            galleryScene.add(ambientLight);
 
-            setInterval(() => {
-                currentSlide = (currentSlide + 1) % carouselImages.length;
-                goToSlide(currentSlide);
-            }, 5000);
-
-            goToSlide(0);
+            updateGalleryDisplay();
+            animateGallery();
         }
+
+        function updateGalleryDisplay() {
+            galleryMeshes.forEach((mesh, i) => {
+                const targetOpacity = i === galleryIndex ? 1 : 0;
+                const targetScale = i === galleryIndex ? 1 : 0.8;
+                mesh.userData.targetOpacity = targetOpacity;
+                mesh.userData.targetScale = targetScale;
+            });
+        }
+
+        function animateGallery() {
+            requestAnimationFrame(animateGallery);
+            
+            if (!galleryMeshes.length) return;
+
+            galleryMeshes.forEach((mesh, i) => {
+                const dist = Math.abs(i - galleryIndex);
+                const targetX = (i - galleryIndex) * 3;
+                
+                mesh.position.x += (targetX - mesh.position.x) * 0.05;
+                mesh.position.y = Math.sin(Date.now() * 0.002 + i) * 0.05;
+                
+                if (mesh.material.opacity !== undefined) {
+                    const targetOpacity = i === galleryIndex ? 1 : 0;
+                    mesh.material.opacity += (targetOpacity - mesh.material.opacity) * 0.08;
+                }
+                
+                const scale = i === galleryIndex ? 1 + Math.sin(Date.now() * 0.003) * 0.02 : 0.7;
+                mesh.scale.setScalar(scale);
+                mesh.lookAt(galleryCamera.position);
+            });
+
+            if (galleryRenderer && galleryScene && galleryCamera) {
+                galleryRenderer.render(galleryScene, galleryCamera);
+            }
+        }
+
+        function goToGallerySlide(index) {
+            if (isAnimating) return;
+            isAnimating = true;
+            galleryIndex = index;
+            updateGalleryDisplay();
+            updateGalleryDots();
+            setTimeout(() => isAnimating = false, 500);
+        }
+
+        function updateGalleryDots() {
+            const dotsContainer = document.getElementById('gallery-dots');
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            galleryImages.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full transition ${i === galleryIndex ? 'bg-[#c5a059]' : 'bg-stone-600 hover:bg-[#c5a059]'}`;
+                dot.addEventListener('click', () => goToGallerySlide(i));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        document.getElementById('gallery-prev')?.addEventListener('click', () => {
+            goToGallerySlide((galleryIndex - 1 + galleryImages.length) % galleryImages.length);
+        });
+
+        document.getElementById('gallery-next')?.addEventListener('click', () => {
+            goToGallerySlide((galleryIndex + 1) % galleryImages.length);
+        });
+
+        setInterval(() => {
+            goToGallerySlide((galleryIndex + 1) % galleryImages.length);
+        }, 6000);
+
+        setTimeout(() => {
+            initGallery3D();
+            updateGalleryDots();
+        }, 500);
     </script>
 </body>
 </html>

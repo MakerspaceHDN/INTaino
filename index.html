@@ -1112,8 +1112,14 @@
             
             if (zemi) {
                 zemi.rotation.y += 0.003;
-                // Efecto de flotación sutil
-                zemi.position.y = Math.sin(Date.now() * 0.0008) * 0.15;
+                
+                const t = Date.now() * 0.0003;
+                zemi.position.x = Math.sin(t) * 2;
+                zemi.position.y = Math.sin(t * 1.5) * 1.5 + 1;
+                zemi.position.z = Math.cos(t) * 2;
+                
+                zemi.rotation.x = Math.sin(t * 0.5) * 0.2;
+                zemi.rotation.z = Math.cos(t * 0.7) * 0.1;
             }
 
             if (ashParticles) {

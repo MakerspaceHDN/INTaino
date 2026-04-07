@@ -355,11 +355,11 @@
         </section>
 
         <!-- Carrusel de Imágenes -->
-        <section class="max-w-6xl mx-auto px-6 py-20 border-t border-stone-800">
+        <section class="max-w-full px-4 py-24 border-t border-stone-800">
             <h2 class="text-2xl text-center text-[#c5a059] mb-12 brand-font uppercase tracking-widest">Galería del Proyecto</h2>
             <div class="relative">
-                <div id="carousel" class="overflow-hidden rounded-3xl">
-                    <div id="carousel-track" class="flex transition-transform duration-500">
+                <div id="carousel" class="overflow-hidden rounded-3xl h-[500px] md:h-[600px]">
+                    <div id="carousel-track" class="flex transition-transform duration-500 h-full">
                     </div>
                 </div>
                 <button id="carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/60 rounded-full flex items-center justify-center text-[#c5a059] hover:bg-[#c5a059] hover:text-black transition">
@@ -1175,8 +1175,8 @@
         if (carouselTrack && carouselImages.length > 0) {
             carouselImages.forEach((img, index) => {
                 const slide = document.createElement('div');
-                slide.className = 'min-w-full relative';
-                slide.innerHTML = `<img src="${img}" class="w-full h-64 md:h-96 object-cover" alt="Galería ${index + 1}">`;
+                slide.className = 'min-w-full relative h-full';
+                slide.innerHTML = `<img src="${img}" class="w-full h-full object-cover" alt="Galería ${index + 1}">`;
                 carouselTrack.appendChild(slide);
 
                 const dot = document.createElement('button');

@@ -988,19 +988,23 @@
             });
 
             const loader = new THREE.STLLoader();
-            loader.load('https://makerspacehdn.github.io/INTaino/multimedia/Coqui_Taino.stl', (geometry) => {
-                geometry.computeVertexNormals();
-                geometry.center();
-                geometry.scale(0.5, 0.5, 0.5);
-                
-                const zemiMesh = new THREE.Mesh(geometry, stoneMaterial);
-                zemiMesh.castShadow = true;
-                zemiMesh.receiveShadow = true;
-                zemiMesh.rotation.x = -Math.PI / 2;
-                zemi.add(zemiMesh);
-                
-                scene.add(zemi);
-            });
+            fetch('https://makerspacehdn.github.io/INTaino/multimedia/Coqui_Taino.stl')
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    const geometry = loader.parse(data);
+                    geometry.computeVertexNormals();
+                    geometry.center();
+                    geometry.scale(0.5, 0.5, 0.5);
+                    
+                    const zemiMesh = new THREE.Mesh(geometry, stoneMaterial);
+                    zemiMesh.castShadow = true;
+                    zemiMesh.receiveShadow = true;
+                    zemiMesh.rotation.x = -Math.PI / 2;
+                    zemi.add(zemiMesh);
+                    
+                    scene.add(zemi);
+                })
+                .catch(err => console.error('STL load error:', err));
 
             // --- ASH PARTICLES (Embers) ---
             const ashCount = 150;

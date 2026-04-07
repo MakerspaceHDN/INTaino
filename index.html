@@ -811,20 +811,43 @@
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <span class="text-[#c5a059] text-xs font-bold tracking-[0.4em] uppercase mb-4 block">Laboratorio</span>
-                <h1 class="text-5xl text-white mb-6 brand-font uppercase">pruebas</h1>
+                <h1 class="text-5xl text-white mb-6 brand-font uppercase">Pruebas</h1>
                 <p class="text-stone-400 max-w-2xl mx-auto italic">
                     "Espacio de experimentación y validación técnica."
                 </p>
             </div>
+
+            <div class="bg-stone-900/50 border border-stone-800 rounded-2xl p-6 mb-8">
+                <h2 class="text-xl text-[#c5a059] mb-4 font-bold">Control de Movimiento del Robot</h2>
+                <p class="text-stone-300 text-sm leading-relaxed mb-4">
+                    Este panel permite controlar de forma remota los motores del robot NITAINO mediante el protocolo MQTT. 
+                    Puedes enviar comandos de movimiento (adelante, atrás, izquierda, derecha, stop) y monitorear 
+                    el estado del robot en tiempo real.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4 text-xs">
+                    <div class="bg-stone-800 p-4 rounded-lg">
+                        <h3 class="text-[#c5a059] font-bold mb-2">Comandos</h3>
+                        <p class="text-stone-400">F = Adelante, B = Atrás, L = Izquierda, R = Derecha, S = Stop</p>
+                    </div>
+                    <div class="bg-stone-800 p-4 rounded-lg">
+                        <h3 class="text-[#c5a059] font-bold mb-2">Conexión</h3>
+                        <p class="text-stone-400">MQTT sobre WebSocket seguro (TLS) con HiveMQ Cloud</p>
+                    </div>
+                    <div class="bg-stone-800 p-4 rounded-lg">
+                        <h3 class="text-[#c5a059] font-bold mb-2">Linterna LED</h3>
+                        <p class="text-stone-400">Control de iluminación para exploración en zonas oscuras</p>
+                    </div>
+                </div>
+            </div>
             
-            <!-- Laboratorio Interactivo (index.html embebido) -->
+            <!-- Laboratorio Interactivo (prueba.html embebido) -->
             <div class="aspect-[16/10] md:aspect-video w-full bg-stone-900 rounded-3xl overflow-hidden border border-stone-800 shadow-2xl scroll-reveal">
                 <iframe src="prueba.html" class="w-full h-full border-none" title="NITAINO Motor Control Lab"></iframe>
             </div>
 
             <div class="mt-8 text-center scroll-reveal">
                 <p class="text-xs text-stone-500 italic">
-                    Control de motores via MQTT, telemetría en tiempo real y visualización de sensores.
+                    Control de motores via MQTT, linterna LED y visualización en tiempo real.
                 </p>
             </div>
         </div>

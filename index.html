@@ -369,10 +369,6 @@
                 </button>
                 <div class="absolute bottom-8 left-0 right-0 px-10 flex items-center justify-between">
                     <div class="flex items-center gap-4">
-                        <button id="gallery-play" class="w-12 h-12 flex items-center justify-center rounded-full bg-[#c5a059] hover:bg-[#c5a059]/80 transition-colors shadow-lg">
-                            <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                            <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                        </button>
                         <div class="text-sm font-medium tracking-widest uppercase text-white/80">
                             <span id="gallery-label">Galería</span> <span class="mx-2 opacity-50">|</span> <span id="gallery-counter">01</span>
                         </div>
@@ -1255,19 +1251,6 @@
 
         document.getElementById('gallery-prev')?.addEventListener('click', handleGalleryPrev);
         document.getElementById('gallery-next')?.addEventListener('click', handleGalleryNext);
-        
-        document.getElementById('gallery-play')?.addEventListener('click', () => {
-            isGalleryPlaying = !isGalleryPlaying;
-            const playIcon = document.getElementById('play-icon');
-            const pauseIcon = document.getElementById('pause-icon');
-            if (isGalleryPlaying) {
-                playIcon?.classList.remove('hidden');
-                pauseIcon?.classList.add('hidden');
-            } else {
-                playIcon?.classList.add('hidden');
-                pauseIcon?.classList.remove('hidden');
-            }
-        });
 
         const galleryContainer = document.getElementById('gallery-container');
         if (galleryContainer) {

@@ -356,18 +356,30 @@
             </div>
         </section>
 
-        <!-- Carrusel 3D de Imágenes -->
-        <section class="max-w-4xl mx-auto px-4 py-24 border-t border-stone-800">
+        <!-- Carrusel de Imágenes -->
+        <section class="max-w-6xl mx-auto px-4 py-24 border-t border-stone-800">
             <h2 class="text-2xl text-center text-[#c5a059] mb-12 brand-font uppercase tracking-widest">Galería del Proyecto</h2>
-            <div id="gallery-3d-container" class="relative h-[30vh] md:h-[40vh] flex items-center justify-center"></div>
-            <div class="flex justify-center gap-4 mt-8">
-                <button id="gallery-prev" class="w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black hover:scale-110 transition">
+            <div id="gallery-container" class="relative aspect-[21/9] rounded-[2rem] overflow-hidden shadow-2xl bg-stone-900 border border-stone-800 group">
+                <div class="relative h-full w-full overflow-hidden" id="gallery-images"></div>
+                <button id="gallery-prev" class="absolute left-6 top-1/2 -translate-y-1/2 p-4 rounded-2xl bg-white/10 hover:bg-[#c5a059]/80 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 border border-white/10 hover:scale-110">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
-                <div id="gallery-dots" class="flex items-center gap-2"></div>
-                <button id="gallery-next" class="w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black hover:scale-110 transition">
+                <button id="gallery-next" class="absolute right-6 top-1/2 -translate-y-1/2 p-4 rounded-2xl bg-white/10 hover:bg-[#c5a059]/80 backdrop-blur-md transition-all opacity-0 group-hover:opacity-100 border border-white/10 hover:scale-110">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
+                <div class="absolute bottom-8 left-0 right-0 px-10 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <button id="gallery-play" class="w-12 h-12 flex items-center justify-center rounded-full bg-[#c5a059] hover:bg-[#c5a059]/80 transition-colors shadow-lg">
+                            <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                        <div class="text-sm font-medium tracking-widest uppercase text-white/80">
+                            <span id="gallery-label">Galería</span> <span class="mx-2 opacity-50">|</span> <span id="gallery-counter">01</span>
+                        </div>
+                    </div>
+                    <div id="gallery-dots" class="flex gap-3"></div>
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none"></div>
             </div>
         </section>
     </main>
@@ -1144,7 +1156,7 @@
             });
         }
 
-        // Galería 3D con Three.js
+        // Galería de Imágenes (estilo React template)
         const galleryImages = [
             'multimedia/IMG_20260407_094956937.jpg',
             'multimedia/IMG_20260407_095027497_HDR.jpg',
@@ -1156,122 +1168,114 @@
             'multimedia/IMG-20260407-WA0015.jpg'
         ];
 
-        let galleryScene, galleryCamera, galleryRenderer, galleryMeshes = [];
-        let galleryIndex = 0;
-        let isAnimating = false;
+        let currentGalleryIndex = 0;
+        let isGalleryPlaying = true;
+        let isGalleryHovered = false;
 
-        function initGallery3D() {
-            const container = document.getElementById('gallery-3d-container');
+        function initGallery() {
+            const container = document.getElementById('gallery-images');
             if (!container) return;
             
-            const width = container.clientWidth || 600;
-            const height = container.clientHeight || 400;
-
-            galleryScene = new THREE.Scene();
-            galleryCamera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
-            galleryCamera.position.z = 5;
-
-            galleryRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            galleryRenderer.setSize(width, height);
-            container.appendChild(galleryRenderer.domElement);
-
-            const textureLoader = new THREE.TextureLoader();
+            container.innerHTML = '';
             
-            galleryImages.forEach((img, i) => {
-                const geometry = new THREE.PlaneGeometry(7, 4);
-                const material = new THREE.MeshBasicMaterial({
-                    map: textureLoader.load(img),
-                    transparent: true,
-                    opacity: 0
-                });
-                const mesh = new THREE.Mesh(geometry, material);
-                mesh.position.x = (i - galleryImages.length / 2) * 6;
-                mesh.userData.targetX = mesh.position.x;
-                mesh.userData.index = i;
-                galleryScene.add(mesh);
-                galleryMeshes.push(mesh);
+            galleryImages.forEach((img, idx) => {
+                const div = document.createElement('div');
+                div.className = `absolute inset-0 transition-all duration-1000 ease-out transform`;
+                div.dataset.index = idx;
+                div.innerHTML = `<img src="${img}" alt="Galería ${idx + 1}" class="w-full h-full object-cover" loading="lazy">`;
+                container.appendChild(div);
             });
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            galleryScene.add(ambientLight);
-
             updateGalleryDisplay();
-            animateGallery();
+            startGalleryAutoplay();
         }
 
         function updateGalleryDisplay() {
-            galleryMeshes.forEach((mesh, i) => {
-                const targetOpacity = i === galleryIndex ? 1 : 0;
-                const targetScale = i === galleryIndex ? 1 : 0.8;
-                mesh.userData.targetOpacity = targetOpacity;
-                mesh.userData.targetScale = targetScale;
-            });
-        }
-
-        function animateGallery() {
-            requestAnimationFrame(animateGallery);
+            const container = document.getElementById('gallery-images');
+            if (!container) return;
             
-            if (!galleryMeshes.length) return;
-
-            galleryMeshes.forEach((mesh, i) => {
-                const dist = Math.abs(i - galleryIndex);
-                const targetX = (i - galleryIndex) * 3;
-                
-                mesh.position.x += (targetX - mesh.position.x) * 0.05;
-                mesh.position.y = Math.sin(Date.now() * 0.002 + i) * 0.05;
-                
-                if (mesh.material.opacity !== undefined) {
-                    const targetOpacity = i === galleryIndex ? 1 : 0;
-                    mesh.material.opacity += (targetOpacity - mesh.material.opacity) * 0.08;
+            const images = container.querySelectorAll('div');
+            images.forEach((div, idx) => {
+                if (idx === currentGalleryIndex) {
+                    div.classList.remove('opacity-0', 'scale-105');
+                    div.classList.add('opacity-100', 'scale-100');
+                } else {
+                    div.classList.remove('opacity-100', 'scale-100');
+                    div.classList.add('opacity-0', 'scale-105');
                 }
-                
-                const scale = i === galleryIndex ? 1 + Math.sin(Date.now() * 0.003) * 0.02 : 0.7;
-                mesh.scale.setScalar(scale);
-                mesh.lookAt(galleryCamera.position);
             });
 
-            if (galleryRenderer && galleryScene && galleryCamera) {
-                galleryRenderer.render(galleryScene, galleryCamera);
+            const counter = document.getElementById('gallery-counter');
+            if (counter) {
+                counter.textContent = String(currentGalleryIndex + 1).padStart(2, '0');
             }
-        }
 
-        function goToGallerySlide(index) {
-            if (isAnimating) return;
-            isAnimating = true;
-            galleryIndex = index;
-            updateGalleryDisplay();
             updateGalleryDots();
-            setTimeout(() => isAnimating = false, 500);
         }
 
         function updateGalleryDots() {
             const dotsContainer = document.getElementById('gallery-dots');
             if (!dotsContainer) return;
+            
             dotsContainer.innerHTML = '';
-            galleryImages.forEach((_, i) => {
+            galleryImages.forEach((_, idx) => {
                 const dot = document.createElement('button');
-                dot.className = `w-3 h-3 rounded-full transition ${i === galleryIndex ? 'bg-[#c5a059]' : 'bg-stone-600 hover:bg-[#c5a059]'}`;
-                dot.addEventListener('click', () => goToGallerySlide(i));
+                dot.className = `h-2 rounded-full transition-all duration-500 ${
+                    idx === currentGalleryIndex 
+                        ? 'w-10 bg-[#c5a059]' 
+                        : 'w-2 bg-white/30 hover:bg-white/50'
+                }`;
+                dot.addEventListener('click', () => goToGallerySlide(idx));
                 dotsContainer.appendChild(dot);
             });
         }
 
-        document.getElementById('gallery-prev')?.addEventListener('click', () => {
-            goToGallerySlide((galleryIndex - 1 + galleryImages.length) % galleryImages.length);
+        function goToGallerySlide(index) {
+            currentGalleryIndex = index;
+            updateGalleryDisplay();
+        }
+
+        function handleGalleryNext() {
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            updateGalleryDisplay();
+        }
+
+        function handleGalleryPrev() {
+            currentGalleryIndex = (currentGalleryIndex === 0 ? galleryImages.length - 1 : currentGalleryIndex - 1);
+            updateGalleryDisplay();
+        }
+
+        function startGalleryAutoplay() {
+            setInterval(() => {
+                if (isGalleryPlaying && !isGalleryHovered) {
+                    handleGalleryNext();
+                }
+            }, 4000);
+        }
+
+        document.getElementById('gallery-prev')?.addEventListener('click', handleGalleryPrev);
+        document.getElementById('gallery-next')?.addEventListener('click', handleGalleryNext);
+        
+        document.getElementById('gallery-play')?.addEventListener('click', () => {
+            isGalleryPlaying = !isGalleryPlaying;
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            if (isGalleryPlaying) {
+                playIcon?.classList.remove('hidden');
+                pauseIcon?.classList.add('hidden');
+            } else {
+                playIcon?.classList.add('hidden');
+                pauseIcon?.classList.remove('hidden');
+            }
         });
 
-        document.getElementById('gallery-next')?.addEventListener('click', () => {
-            goToGallerySlide((galleryIndex + 1) % galleryImages.length);
-        });
+        const galleryContainer = document.getElementById('gallery-container');
+        if (galleryContainer) {
+            galleryContainer.addEventListener('mouseenter', () => isGalleryHovered = true);
+            galleryContainer.addEventListener('mouseleave', () => isGalleryHovered = false);
+        }
 
-        setInterval(() => {
-            goToGallerySlide((galleryIndex + 1) % galleryImages.length);
-        }, 6000);
-
-        setTimeout(() => {
-            initGallery3D();
-            updateGalleryDots();
-        }, 500);
+        setTimeout(initGallery, 300);
     </script>
 </body>
 </html>

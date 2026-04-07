@@ -6,7 +6,6 @@
     <title>NITAINO | Portal de Arqueología Robótica</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.5.1/browser/pixi.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap');
@@ -981,30 +980,18 @@
 
             // Material de piedra oscura realista
             const stoneMaterial = new THREE.MeshStandardMaterial({
-                color: 0x2a2522,
-                roughness: 0.92,
-                metalness: 0.08,
-                flatShading: false
+                color: 0xC5A059,
+                roughness: 0.3,
+                metalness: 0.6,
+                flatShading: true
             });
 
-            const loader = new THREE.STLLoader();
-            fetch('https://makerspacehdn.github.io/INTaino/multimedia/Coqui_Taino.stl')
-                .then(response => response.arrayBuffer())
-                .then(data => {
-                    const geometry = loader.parse(data);
-                    geometry.computeVertexNormals();
-                    geometry.center();
-                    geometry.scale(0.5, 0.5, 0.5);
-                    
-                    const zemiMesh = new THREE.Mesh(geometry, stoneMaterial);
-                    zemiMesh.castShadow = true;
-                    zemiMesh.receiveShadow = true;
-                    zemiMesh.rotation.x = -Math.PI / 2;
-                    zemi.add(zemiMesh);
-                    
-                    scene.add(zemi);
-                })
-                .catch(err => console.error('STL load error:', err));
+            const icoGeo = new THREE.IcosahedronGeometry(1.5, 1);
+            const zemiMesh = new THREE.Mesh(icoGeo, stoneMaterial);
+            zemiMesh.castShadow = true;
+            zemi.add(zemiMesh);
+
+            scene.add(zemi);
 
             // --- ASH PARTICLES (Embers) ---
             const ashCount = 150;
@@ -1102,11 +1089,11 @@
 
         // Video aleatorio del directorio multimedia
         const videoFiles = [
-            'multimedia/IMG_8132.MOV',
-            'multimedia/IMG_8133.MOV',
-            'multimedia/IMG_8134.MOV',
-            'multimedia/IMG_8135.MP4',
-            'multimedia/IMG_8136.MP4'
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_8132.MOV',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_8133.MOV',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_8134.MOV',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_8135.MP4',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_8136.MP4'
         ];
         const randomVideo = videoFiles[Math.floor(Math.random() * videoFiles.length)];
         
@@ -1136,25 +1123,25 @@
 
         // Carrusel de imágenes
         const carouselImages = [
-            'multimedia/IMG_20260407_094935095_HDR.jpg',
-            'multimedia/IMG_20260407_094947575_HDR.jpg',
-            'multimedia/IMG_20260407_094956937.jpg',
-            'multimedia/IMG_20260407_095027497_HDR.jpg',
-            'multimedia/IMG_20260407_095042213_HDR.jpg',
-            'multimedia/IMG_20260407_095055496.jpg',
-            'multimedia/IMG-20260326-WA0014.jpg',
-            'multimedia/IMG-20260326-WA0015.jpg',
-            'multimedia/IMG-20260326-WA0016.jpg',
-            'multimedia/IMG-20260326-WA0017.jpg',
-            'multimedia/IMG-20260326-WA0018.jpg',
-            'multimedia/IMG-20260326-WA0019.jpg',
-            'multimedia/IMG-20260407-WA0011.jpg',
-            'multimedia/IMG-20260407-WA0012.jpg',
-            'multimedia/IMG-20260407-WA0013.jpg',
-            'multimedia/IMG-20260407-WA0014.jpg',
-            'multimedia/IMG-20260407-WA0015.jpg',
-            'multimedia/IMG-20260407-WA0016.jpg',
-            'multimedia/IMG_8094.JPG'
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_20260407_094935095_HDR.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_20260407_094947575_HDR.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_20260407_094956937.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_20260407_095027497_HDR.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_20260407_095042213_HDR.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_20260407_095055496.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260326-WA0014.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260326-WA0015.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260326-WA0016.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260326-WA0017.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260326-WA0018.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260326-WA0019.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260407-WA0011.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260407-WA0012.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260407-WA0013.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260407-WA0014.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260407-WA0015.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG-20260407-WA0016.jpg',
+            'https://makerspacehdn.github.io/INTaino/multimedia/IMG_8094.JPG'
         ];
 
         const carouselTrack = document.getElementById('carousel-track');

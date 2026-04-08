@@ -140,6 +140,15 @@
             padding: 1rem;
             transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .evidence-img img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .evidence-img:hover {
@@ -397,17 +406,16 @@
 
             <!-- Video Section con Guion del Equipo -->
             <section class="mb-24 scroll-reveal">
-                <div class="max-w-4xl mx-auto">
-                    <div class="aspect-[16/9] bg-stone-900 rounded-3xl flex items-center justify-center border-2 border-[#c5a059]/30 overflow-hidden relative shadow-2xl">
-                        <video id="hero-video" class="absolute inset-0 w-full h-full object-cover opacity-60" autoplay loop playsinline></video>
-                        <div class="absolute bottom-6 left-0 right-0 z-10 text-center">
-                            <span class="inline-block bg-black/60 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-[#c5a059] mb-3">Presentación Oficial Synergy</span>
-                            <div class="flex justify-center gap-3">
-                                <button id="video-toggle" class="w-16 h-16 bg-[#c5a059] rounded-full flex items-center justify-center text-black cursor-pointer hover:scale-110 transition shadow-lg">
-                                    <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                    <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                                </button>
-                            </div>
+                <div class="max-w-5xl mx-auto px-4">
+                    <div id="video-container" class="w-full h-[900px] bg-stone-900 rounded-3xl border-2 border-[#c5a059]/30 overflow-hidden relative shadow-2xl cursor-pointer" onmouseenter="document.getElementById('video-toggle').classList.remove('hidden')" onmouseleave="if(!document.getElementById('hero-video').paused){document.getElementById('video-toggle').classList.add('hidden')}">
+                        <video id="hero-video" class="w-full h-full object-cover" playsinline>
+                            <source src="multimedia/IMG_4898.mp4" type="video/mp4">
+                        </video>
+                        <div id="video-toggle" class="absolute inset-0 z-10 flex items-center justify-center bg-black/30">
+                            <button class="w-24 h-24 bg-[#c5a059] rounded-full flex items-center justify-center text-black cursor-pointer hover:scale-110 transition shadow-lg">
+                                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -476,7 +484,7 @@
                         <div class="absolute -inset-1 bg-gradient-to-r from-[#c5a059]/20 to-transparent rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                         <div class="relative aspect-[4/5] md:aspect-square bg-stone-900 rounded-3xl overflow-hidden border border-[#c5a059]/30 shadow-2xl">
                             <!-- Imagen de equipo premium -->
-                            <video src="multimedia/IMG_8135.MP4" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition duration-500 mix-blend-overlay" autoplay muted loop playsinline></video>
+                            <video src="multimedia/innovadores del mañana.mp4" class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline></video>
                             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition duration-500"></div>
                             <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black to-transparent">
                                 <div class="flex items-center gap-3 mb-2">
@@ -568,9 +576,18 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="evidence-img"><span>📸 Visita al Museo Nacional</span></div>
-                        <div class="evidence-img"><span>📸 Exploración Cueva El Higo</span></div>
-                        <div class="evidence-img"><span>📸 Centro Cultural Taíno</span></div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Museo Nacional</h5>
+                            <img src="multimedia/museo22.jpeg" alt="Museo Nacional" class="w-full h-56 object-cover rounded-lg">
+                        </div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Cueva El Higo</h5>
+                            <img src="multimedia/higo22.jpeg" alt="Cueva El Higo" class="w-full h-56 object-cover rounded-lg">
+                        </div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Cueva de las Maravillas</h5>
+                            <img src="multimedia/maravilla22.jpeg" alt="Cueva de las Maravillas" class="w-full h-56 object-cover rounded-lg">
+                        </div>
                     </div>
                 </section>
 
@@ -591,9 +608,9 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="evidence-img"><img src="multimedia/diseno.jpg" class="w-full h-full object-cover" alt="Diseño 1"><span class="absolute bottom-2 text-[10px]">Diseño 1</span></div>
-                        <div class="evidence-img"><img src="multimedia/diseno2.png" class="w-full h-full object-cover" alt="Diseño 2"><span class="absolute bottom-2 text-[10px]">Diseño 2</span></div>
-                        <div class="evidence-img"><img src="multimedia/diseno3.png" class="w-full h-full object-cover" alt="Diseño 3"><span class="absolute bottom-2 text-[10px]">Diseño 3</span></div>
+                        <div class="evidence-img hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300"><img src="multimedia/diseno.jpg" class="w-full h-full object-cover" alt="Diseño 1"><span class="absolute bottom-2 text-[10px]">Diseño 1</span></div>
+                        <div class="evidence-img hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300"><img src="multimedia/diseno2.png" class="w-full h-full object-cover" alt="Diseño 2"><span class="absolute bottom-2 text-[10px]">Diseño 2</span></div>
+                        <div class="evidence-img hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300"><img src="multimedia/diseno3.png" class="w-full h-full object-cover" alt="Diseño 3"><span class="absolute bottom-2 text-[10px]">Diseño 3</span></div>
                     </div>
                 </section>
 
@@ -609,9 +626,18 @@
                         </p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="evidence-img"><span>📸 Construcción del Chasis</span></div>
-                        <div class="evidence-img"><span>📸 Montaje de Motores</span></div>
-                        <div class="evidence-img"><span>📸 Integración ESP32</span></div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Construcción del Chasis</h5>
+                            <img src="multimedia/chasis.jpeg" alt="Construcción del Chasis" class="w-full h-56 object-cover rounded-lg">
+                        </div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Montaje de Motores</h5>
+                            <img src="multimedia/chasis1.jpeg" alt="Montaje de Motores" class="w-full h-56 object-cover rounded-lg">
+                        </div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Integración ESP32</h5>
+                            <img src="multimedia/chasis3.jpeg" alt="Integración ESP32" class="w-full h-56 object-cover rounded-lg">
+                        </div>
                     </div>
                 </section>
 
@@ -631,8 +657,14 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="evidence-img"><span>📸 Pruebas de Terreno</span></div>
-                        <div class="evidence-img"><span>📸 Ajustes de Programación</span></div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Pruebas de Terreno</h5>
+                            <video src="multimedia/prueba de terreno2.mp4" class="w-full h-56 object-cover rounded-lg" controls></video>
+                        </div>
+                        <div class="bg-stone-800/30 p-4 rounded-lg border border-stone-700 text-center hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
+                            <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Ajustes de Programación</h5>
+                            <img src="multimedia/diseno.jpg" alt="Ajustes de Programación" class="w-full h-56 object-cover rounded-lg">
+                        </div>
                     </div>
                 </section>
 
@@ -643,19 +675,21 @@
                         Compartimos nuestra jornada y hallazgos para concientizar sobre el patrimonio nacional:
                     </p>
                     <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div class="bg-stone-800/30 p-4 rounded-lg text-center border border-stone-700">
+                        <div class="bg-stone-800/30 p-4 rounded-lg text-center border border-stone-700 hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
                             <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Divulgación</h5>
-                            <p class="text-[11px] text-stone-500 italic">"Educamos y concientizamos sobre la importancia de nuestros recursos culturales."</p>
+                            <p class="text-[11px] text-stone-500 italic mb-3">"Educamos y concientizamos sobre la importancia de nuestros recursos culturales."</p>
+                            <img src="multimedia/divulgcion.jpeg" alt="Divulgación" class="w-full h-56 object-cover rounded-lg">
                         </div>
-                        <div class="bg-stone-800/30 p-4 rounded-lg text-center border border-stone-700">
+                        <div class="bg-stone-800/30 p-4 rounded-lg text-center border border-stone-700 hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300">
                             <h5 class="text-[10px] font-bold uppercase text-[#c5a059] mb-2">Preservación Digital</h5>
-                            <p class="text-[11px] text-stone-500 italic">"Garantizamos que la historia de Quisqueya sea accesible para todos."</p>
+                            <p class="text-[11px] text-stone-500 italic mb-3">"Garantizamos que la historia de Quisqueya sea accesible para todos."</p>
+                            <img src="multimedia/preservacion digital.jpeg" alt="Preservación Digital" class="w-full h-56 object-cover rounded-lg">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="evidence-img"><span>📸 Mesa Redonda</span></div>
-                        <div class="evidence-img"><span>📸 Presentación del Logotipo</span></div>
-                        <div class="evidence-img"><span>📸 Feria Científica</span></div>
+                        <div class="evidence-img hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300"><img src="multimedia/comunicar-1.jpeg" alt="Mesa Redonda" class="w-full h-full object-cover"></div>
+                        <div class="evidence-img hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300"><img src="multimedia/comunicar-2.jpeg" alt="Presentación del Logotipo" class="w-full h-full object-cover"></div>
+                        <div class="evidence-img hover:scale-105 hover:shadow-xl hover:shadow-[#c5a059]/20 transition duration-300"><img src="multimedia/comunicar3.jpeg" alt="Feria Científica" class="w-full h-full object-cover"></div>
                     </div>
                 </section>
             </div>
@@ -1124,32 +1158,34 @@
         });
 
         // Video del directorio multimedia
-        const videoFiles = [
-            'multimedia/IMG_8135.MP4'
-        ];
-        const randomVideo = videoFiles[Math.floor(Math.random() * videoFiles.length)];
-        
         const videoEl = document.getElementById('hero-video');
+        const videoContainer = document.getElementById('video-container');
         const videoToggle = document.getElementById('video-toggle');
         const playIcon = document.getElementById('play-icon');
         const pauseIcon = document.getElementById('pause-icon');
         
-        if (videoEl && randomVideo) {
-            videoEl.src = randomVideo;
-            videoEl.load();
-        }
-        
         if (videoToggle) {
-            videoToggle.addEventListener('click', () => {
+            videoToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
                 if (videoEl.paused) {
                     videoEl.play();
                     playIcon.classList.add('hidden');
                     pauseIcon.classList.remove('hidden');
+                    videoToggle.classList.add('hidden');
                 } else {
                     videoEl.pause();
                     playIcon.classList.remove('hidden');
                     pauseIcon.classList.add('hidden');
+                    videoToggle.classList.remove('hidden');
                 }
+            });
+        }
+        
+        if (videoEl) {
+            videoEl.addEventListener('ended', () => {
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                videoToggle.classList.remove('hidden');
             });
         }
 

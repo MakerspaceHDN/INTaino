@@ -289,15 +289,6 @@ const anexosHTML = `
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                                <img src="multimedia/ruedas4.jpeg" alt="Ruedas" class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Sistema de Ruedas</h4>
-                                    <p class="text-[#c5a059] text-xs">Tracción optimizada</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <button onclick="scrollCarousel('carousel-maniobrabilidad', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition z-10 hidden md:flex">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>

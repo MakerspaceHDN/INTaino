@@ -32,8 +32,8 @@ const anexosHTML = `
                         <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" loop></video>
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent);">
-                        <h4 class="text-xl font-bold mb-1" style="color: var(--parchment-light); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Video del Proyecto NITAINO</h4>
-                        <p class="text-sm" style="color: var(--terracotta);">Presentación completa del prototipo</p>
+                        <h4 class="text-2xl font-bold mb-1 text-white">Video del Proyecto NITAINO</h4>
+                        <p class="text-base text-white">Presentación completa del prototipo</p>
                     </div>
                 </div>
                 

@@ -33,7 +33,7 @@ const anexosHTML = `
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent);">
                         <h4 class="text-2xl font-bold mb-1" style="color: #FFFFFF;">Video del Proyecto NITAINO</h4>
-                        <p class="text-base" style="color: #FFFFFF;">Presentación completa del prototipo</p>
+                        <p class="text-base" style="color: #FFFFFF !important;">Presentación completa del prototipo</p>
                     </div>
                     <p class="text-center text-sm text-white mt-2 italic" style="background: rgba(44,36,27,0.9); padding: 8px;">Mantenga el cursor sobre el video para mantenerlo reproduciéndose</p>
                 </div>

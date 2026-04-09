@@ -1,12 +1,12 @@
 const anexosHTML = `
     <!-- ANEXOS CON CARRUSELES DINÁMICOS -->
-    <section id="anexos" class="py-24 px-6 border-t border-stone-800 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#c5a059]/5 to-transparent pointer-events-none"></div>
+    <section id="anexos" class="py-24 px-6 border-t border-terracotta relative overflow-hidden" style="background-color: var(--parchment);">
+        <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('multimedia/fondopagina.png'); background-size: cover; background-position: center;"></div>
         
         <div class="max-w-7xl mx-auto relative z-10">
-            <span class="text-[#c5a059] text-xs font-bold tracking-[0.4em] uppercase mb-4 block text-center">Documentación</span>
-            <h2 class="text-4xl md:text-5xl text-white mb-4 brand-font text-center">Anexos Técnicos</h2>
-            <p class="text-stone-300 text-lg text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold tracking-[0.4em] uppercase mb-4 block text-center" style="color: var(--terracotta);">Documentación</span>
+            <h2 class="text-4xl md:text-5xl mb-4 brand-font text-center" style="color: var(--charcoal);">Anexos Técnicos</h2>
+            <p class="text-lg text-center max-w-2xl mx-auto mb-16" style="color: var(--charcoal-muted);">
                 Detalles adicionales sobre el desarrollo, diseño y pruebas del prototipo NITAINO.
             </p>
 
@@ -14,50 +14,50 @@ const anexosHTML = `
             <div class="mb-20">
                 <div class="relative">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="bg-[#1a1614] px-4 py-2 relative z-10">
-                            <h3 class="text-2xl text-white brand-font">Team</h3>
+                        <div class="px-4 py-2 relative z-10" style="background: var(--parchment-light); border: 2px solid var(--terracotta);">
+                            <h3 class="text-2xl brand-font" style="color: var(--terracotta);">Team</h3>
                         </div>
-                        <div class="flex-1 h-px bg-stone-700 mt-auto mb-4"></div>
+                        <div class="flex-1 h-px mt-auto mb-4" style="background: var(--terracotta);"></div>
                     </div>
                 </div>
-                <div class="bg-stone-900/50 p-6 rounded-2xl border border-stone-800 mb-8">
-                    <p class="text-stone-300 leading-relaxed">
+                <div class="p-6 rounded-2xl border mb-8" style="background: var(--parchment-light); border-color: var(--parchment-border);">
+                    <p class="leading-relaxed" style="color: var(--charcoal);">
                         Equipo Synergy del Politécnico Escuela Hogar del Niño. Formado por estudiantes apasionados por la tecnología y la arqueología, trabajando juntos para crear soluciones innovadoras que protejan tanto el patrimonio como a los exploradores.
                     </p>
                 </div>
                 
                 <!-- Video Protagonista -->
                 <div class="relative rounded-2xl overflow-hidden mb-8 group">
-                    <div class="aspect-video bg-stone-900 rounded-2xl border-2 border-[#c5a059]/50 overflow-hidden">
-                        <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" controls loop muted></video>
+                    <div class="aspect-video rounded-2xl border-2 overflow-hidden" style="border-color: var(--terracotta); background: var(--parchment-dark);">
+                        <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" controls loop></video>
                     </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                        <h4 class="text-white text-xl font-bold mb-1">Video del Proyecto NITAINO</h4>
-                        <p class="text-[#c5a059] text-sm">Presentación completa del prototipo</p>
+                    <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent);">
+                        <h4 class="text-xl font-bold mb-1" style="color: var(--parchment-light); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Video del Proyecto NITAINO</h4>
+                        <p class="text-sm" style="color: var(--terracotta);">Presentación completa del prototipo</p>
                     </div>
                 </div>
                 
                 <!-- Grid de Imágenes Team -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                        <img src="multimedia/team.jpeg" alt="Team" class="w-full h-56 object-cover">
+                    <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
+                        <img src="multimedia/team.jpeg" alt="Team" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-white text-sm font-bold">Equipo Synergy</h4>
-                            <p class="text-[#c5a059] text-xs mt-1">Presentación oficial</p>
+                            <h4 class="text-sm font-bold" style="color: var(--charcoal);">Equipo Synergy</h4>
+                            <p class="text-xs mt-1" style="color: var(--terracotta);">Presentación oficial</p>
                         </div>
                     </div>
-                    <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                        <img src="multimedia/team3.jpeg" alt="Team 3" class="w-full h-56 object-cover">
+                    <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
+                        <img src="multimedia/team3.jpeg" alt="Team 3" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-white text-sm font-bold">Trabajo en equipo</h4>
-                            <p class="text-[#c5a059] text-xs mt-1">Colaboración y esfuerzo</p>
+                            <h4 class="text-sm font-bold" style="color: var(--charcoal);">Trabajo en equipo</h4>
+                            <p class="text-xs mt-1" style="color: var(--terracotta);">Colaboración y esfuerzo</p>
                         </div>
                     </div>
-                    <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                        <img src="multimedia/team6.jpeg" alt="Team 6" class="w-full h-56 object-cover">
+                    <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
+                        <img src="multimedia/team6.jpeg" alt="Team 6" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-white text-sm font-bold">Moments captured</h4>
-                            <p class="text-[#c5a059] text-xs mt-1">Documentación del proceso</p>
+                            <h4 class="text-sm font-bold" style="color: var(--charcoal);">Moments captured</h4>
+                            <p class="text-xs mt-1" style="color: var(--terracotta);">Documentación del proceso</p>
                         </div>
                     </div>
                 </div>
@@ -67,43 +67,43 @@ const anexosHTML = `
             <div class="mb-20">
                 <div class="relative">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="bg-[#1a1614] px-4 py-2 relative z-10">
-                            <h3 class="text-2xl text-white brand-font">Diseño</h3>
+                        <div class="px-4 py-2 relative z-10" style="background: var(--parchment-light); border: 2px solid var(--terracotta);">
+                            <h3 class="text-2xl brand-font" style="color: var(--terracotta);">Diseño</h3>
                         </div>
-                        <div class="flex-1 h-px bg-stone-700 mt-auto mb-4"></div>
+                        <div class="flex-1 h-px mt-auto mb-4" style="background: var(--terracotta);"></div>
                     </div>
                 </div>
-                <div class="bg-stone-900/50 p-6 rounded-2xl border border-stone-800 mb-8">
-                    <p class="text-stone-300 leading-relaxed">
+                <div class="p-6 rounded-2xl border mb-8" style="background: var(--parchment-light); border-color: var(--parchment-border);">
+                    <p class="leading-relaxed" style="color: var(--charcoal);">
                         Proceso de diseño iterativo del robot NITAINO. Desde las primeras conceptos hasta el prototipo funcional, cada versión fue probada y mejorada para maximizar la efectividad en la exploración de cuevas.
                     </p>
                 </div>
                 <div class="carousel-wrapper relative">
                     <div class="carousel-move flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="carousel-diseno">
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
+                            <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <img src="multimedia/diseno.jpg" alt="Diseño" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Diseño Inicial</h4>
-                                    <p class="text-[#c5a059] text-xs">Concepto base</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Diseño Inicial</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Concepto base</p>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
+                            <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <img src="multimedia/diseno2.png" alt="Diseño 2" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Prototipo v1</h4>
-                                    <p class="text-[#c5a059] text-xs">Versión mejorada</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prototipo v1</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Versión mejorada</p>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
+                            <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <img src="multimedia/diseno3.png" alt="Diseño 3" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Versión Final</h4>
-                                    <p class="text-[#c5a059] text-xs">Prototipo funcional</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Versión Final</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Prototipo funcional</p>
                                 </div>
                             </div>
                         </div>
@@ -215,15 +215,7 @@ const anexosHTML = `
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                                <img src="multimedia/diseño15.jpg" alt="Diseño 15" class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Ensamblaje</h4>
-                                    <p class="text-[#c5a059] text-xs">Integración final</p>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño16.jpeg" alt="Diseño 16" class="w-full h-48 object-cover">
@@ -252,10 +244,10 @@ const anexosHTML = `
                             </div>
                         </div>
                     </div>
-                    <button onclick="scrollCarousel('carousel-diseno', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black shadow-lg hover:scale-110 transition z-10 hidden md:flex">
+                    <button onclick="scrollCarousel('carousel-diseno', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-10 hidden md:flex bg-black text-white hover:bg-gray-800">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
                     </button>
-                    <button onclick="scrollCarousel('carousel-diseno', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black shadow-lg hover:scale-110 transition z-10 hidden md:flex">
+                    <button onclick="scrollCarousel('carousel-diseno', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-10 hidden md:flex bg-black text-white hover:bg-gray-800">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
                     </button>
                 </div>
@@ -265,34 +257,34 @@ const anexosHTML = `
             <div class="mb-20">
                 <div class="relative">
                     <div class="flex items-center gap-4 mb-6">
-                        <div class="bg-[#1a1614] px-4 py-2 relative z-10">
-                            <h3 class="text-2xl text-white brand-font">Maniobrabilidad</h3>
+                        <div class="px-4 py-2 relative z-10" style="background: var(--parchment-light); border: 2px solid var(--terracotta);">
+                            <h3 class="text-2xl brand-font" style="color: var(--terracotta);">Maniobrabilidad</h3>
                         </div>
-                        <div class="flex-1 h-px bg-stone-700 mt-auto mb-4"></div>
+                        <div class="flex-1 h-px mt-auto mb-4" style="background: var(--terracotta);"></div>
                     </div>
                 </div>
-                <div class="bg-stone-900/50 p-6 rounded-2xl border border-stone-800 mb-8">
-                    <p class="text-stone-300 leading-relaxed">
+                <div class="p-6 rounded-2xl border mb-8" style="background: var(--parchment-light); border-color: var(--parchment-border);">
+                    <p class="leading-relaxed" style="color: var(--charcoal);">
                         Pruebas de movimiento y control del robot. El sistema de tracción y las iteraciones del diseño de ruedas permitieron lograr un robot estable y fácil de controlar en diferentes superficies.
                     </p>
                 </div>
                 <div class="carousel-wrapper relative">
                     <div class="carousel-move flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="carousel-maniobrabilidad">
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
+                            <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" controls></video>
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Prueba v1</h4>
-                                    <p class="text-[#c5a059] text-xs">Movimiento inicial</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prueba v1</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Movimiento inicial</p>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
+                            <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" controls></video>
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Prueba v2</h4>
-                                    <p class="text-[#c5a059] text-xs">Mejora respuesta</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prueba v2</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Mejora respuesta</p>
                                 </div>
                             </div>
                         </div>
@@ -315,10 +307,10 @@ const anexosHTML = `
                             </div>
                         </div>
                     </div>
-                    <button onclick="scrollCarousel('carousel-maniobrabilidad', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black shadow-lg hover:scale-110 transition z-10 hidden md:flex">
+                    <button onclick="scrollCarousel('carousel-maniobrabilidad', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition z-10 hidden md:flex">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
                     </button>
-                    <button onclick="scrollCarousel('carousel-maniobrabilidad', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-[#c5a059] rounded-full flex items-center justify-center text-black shadow-lg hover:scale-110 transition z-10 hidden md:flex">
+                    <button onclick="scrollCarousel('carousel-maniobrabilidad', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition z-10 hidden md:flex">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
                     </button>
                 </div>

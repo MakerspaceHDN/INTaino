@@ -35,6 +35,7 @@ const anexosHTML = `
                         <h4 class="text-2xl font-bold mb-1 text-white">Video del Proyecto NITAINO</h4>
                         <p class="text-base text-white">Presentación completa del prototipo</p>
                     </div>
+                    <p class="text-center text-sm text-white mt-2 italic" style="background: rgba(44,36,27,0.9); padding: 8px;">Mantenga el cursor sobre el video para mantenerlo reproduciéndose</p>
                 </div>
                 
                 <!-- Grid de Imágenes Team -->

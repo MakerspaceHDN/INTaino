@@ -29,7 +29,7 @@ const anexosHTML = `
                 <!-- Video Protagonista -->
                 <div class="relative rounded-2xl overflow-hidden mb-8 group">
                     <div class="aspect-video rounded-2xl border-2 overflow-hidden" style="border-color: var(--terracotta); background: var(--parchment-dark);">
-                        <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" controls loop></video>
+                        <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" loop></video>
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent);">
                         <h4 class="text-xl font-bold mb-1" style="color: var(--parchment-light); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Video del Proyecto NITAINO</h4>
@@ -42,21 +42,21 @@ const anexosHTML = `
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team.jpeg" alt="Team" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold" style="color: var(--charcoal);">Equipo Synergy</h4>
+                            <h4 class="text-sm font-bold text-white">Equipo Synergy</h4>
                             <p class="text-xs mt-1" style="color: var(--terracotta);">Presentación oficial</p>
                         </div>
                     </div>
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team3.jpeg" alt="Team 3" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold" style="color: var(--charcoal);">Trabajo en equipo</h4>
+                            <h4 class="text-sm font-bold text-white">Trabajo en equipo</h4>
                             <p class="text-xs mt-1" style="color: var(--terracotta);">Colaboración y esfuerzo</p>
                         </div>
                     </div>
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team6.jpeg" alt="Team 6" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold" style="color: var(--charcoal);">Moments captured</h4>
+                            <h4 class="text-sm font-bold text-white">Moments captured</h4>
                             <p class="text-xs mt-1" style="color: var(--terracotta);">Documentación del proceso</p>
                         </div>
                     </div>

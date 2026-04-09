@@ -31,9 +31,9 @@ const anexosHTML = `
                     <div class="aspect-video rounded-2xl border-2 overflow-hidden" style="border-color: var(--terracotta); background: var(--parchment-dark);">
                         <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" loop></video>
                     </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent);">
+                    <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent); color: #FFFFFF;">
                         <h4 class="text-2xl font-bold mb-1" style="color: #FFFFFF;">Video del Proyecto NITAINO</h4>
-                        <p class="text-base" style="color: #FFFFFF !important;">Presentación completa del prototipo</p>
+                        <p class="text-base" style="color: #FFFFFF;">Presentación completa del prototipo</p>
                     </div>
                     <p class="text-center text-sm text-white mt-2 italic" style="background: rgba(44,36,27,0.9); padding: 8px;">Mantenga el cursor sobre el video para mantenerlo reproduciéndose</p>
                 </div>

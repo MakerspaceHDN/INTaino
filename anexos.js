@@ -264,7 +264,7 @@ const anexosHTML = `
                     <div class="carousel-move flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="carousel-maniobrabilidad">
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
-                                <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" controls muted></video>
+                                <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" controls muted disablePictureInPicture></video>
                                 <div class="p-4">
                                     <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prueba v1</h4>
                                     <p class="text-xs" style="color: var(--terracotta);">Movimiento inicial</p>
@@ -273,7 +273,7 @@ const anexosHTML = `
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
-                                <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" controls muted></video>
+                                <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" controls muted disablePictureInPicture></video>
                                 <div class="p-4">
                                     <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prueba v2</h4>
                                     <p class="text-xs" style="color: var(--terracotta);">Mejora respuesta</p>
@@ -282,7 +282,7 @@ const anexosHTML = `
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                                <video src="multimedia/maniobrabilidad3.mp4" class="w-full h-48 object-cover" controls muted></video>
+                                <video src="multimedia/maniobrabilidad3.mp4" class="w-full h-48 object-cover" controls muted disablePictureInPicture></video>
                                 <div class="p-4">
                                     <h4 class="text-white text-base font-bold mb-1">Prueba Final</h4>
                                     <p class="text-[#c5a059] text-xs">Robot estable</p>

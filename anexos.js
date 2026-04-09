@@ -155,15 +155,6 @@ const anexosHTML = `
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                                <img src="multimedia/diseño9.jpg" alt="Diseño 9" class="w-full h-48 object-cover">
-                                <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Prototipo</h4>
-                                    <p class="text-[#c5a059] text-xs">Versión funcional</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
-                            <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño10.jpg" alt="Diseño 10" class="w-full h-48 object-cover">
                                 <div class="p-4">
                                     <h4 class="text-white text-base font-bold mb-1">Detalles</h4>

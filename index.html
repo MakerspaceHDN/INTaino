@@ -436,6 +436,11 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+
         .hero-item {
             opacity: 0;
             animation: heroFadeIn 1s ease-out forwards;

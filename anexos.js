@@ -43,22 +43,22 @@ const anexosHTML = `
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team.jpeg" alt="Team" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold text-white">Equipo Synergy</h4>
-                            <p class="text-xs mt-1" style="color: var(--terracotta);">Presentación oficial</p>
+                            <h4 class="text-sm font-bold text-white">Equipo Synergy - Presentación</h4>
+                            <p class="text-xs mt-1" style="color: var(--terracotta);">Integrantes del equipo durante la presentación oficial</p>
                         </div>
                     </div>
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team3.jpeg" alt="Team 3" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold text-white">Trabajo en equipo</h4>
-                            <p class="text-xs mt-1" style="color: var(--terracotta);">Colaboración y esfuerzo</p>
+                            <h4 class="text-sm font-bold text-white">Visita a Cueva - Exploración</h4>
+                            <p class="text-xs mt-1" style="color: var(--terracotta);">Primera visita de reconocimiento a zona arqueológica</p>
                         </div>
                     </div>
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team6.jpeg" alt="Team 6" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold text-white">Moments captured</h4>
-                            <p class="text-xs mt-1" style="color: var(--terracotta);">Documentación del proceso</p>
+                            <h4 class="text-sm font-bold text-white">Visita al Museo - Investigación</h4>
+                            <p class="text-xs mt-1" style="color: var(--terracotta);">Investigación en museo con exhibit de esqueleto</p>
                         </div>
                     </div>
                 </div>
@@ -85,8 +85,8 @@ const anexosHTML = `
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <img src="multimedia/diseno.jpg" alt="Diseño" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Diseño Inicial</h4>
-                                    <p class="text-xs" style="color: var(--terracotta);">Concepto base</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Diseño 3D - Modelo Conceptual</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Prototipo virtual en 3D simplificado</p>
                                 </div>
                             </div>
                         </div>
@@ -94,8 +94,8 @@ const anexosHTML = `
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <img src="multimedia/diseno2.png" alt="Diseño 2" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prototipo v1</h4>
-                                    <p class="text-xs" style="color: var(--terracotta);">Versión mejorada</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prototipo v1 - Vista Lateral</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Primera iteración funcional del robot vista lateral</p>
                                 </div>
                             </div>
                         </div>
@@ -103,8 +103,8 @@ const anexosHTML = `
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <img src="multimedia/diseno3.png" alt="Diseño 3" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Versión Final</h4>
-                                    <p class="text-xs" style="color: var(--terracotta);">Prototipo funcional</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Versión Final - Vista Frontal</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Modelo casi definitivo del robot vista frontal</p>
                                 </div>
                             </div>
                         </div>
@@ -112,8 +112,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño4.png" alt="Diseño 4" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Iteración 2</h4>
-                                    <p class="text-[#c5a059] text-xs">Mejoras técnicas</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Diseño de Llanta v1</h4>
+                                    <p class="text-[#c5a059] text-xs">Primera versión del diseño de llanta</p>
                                 </div>
                             </div>
                         </div>
@@ -121,8 +121,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño5.png" alt="Diseño 5" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Sistema Electrónico</h4>
-                                    <p class="text-[#c5a059] text-xs">Integración ESP32</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Diseño de Llanta v2</h4>
+                                    <p class="text-[#c5a059] text-xs">Segunda versión del diseño de llanta</p>
                                 </div>
                             </div>
                         </div>
@@ -130,8 +130,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño6.png" alt="Diseño 6" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Chasis</h4>
-                                    <p class="text-[#c5a059] text-xs">Estructura</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Diseño de Aro de Llantas</h4>
+                                    <p class="text-[#c5a059] text-xs">Estructura del aro para las llantas del robot</p>
                                 </div>
                             </div>
                         </div>
@@ -139,8 +139,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño7.png" alt="Diseño 7" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Montaje</h4>
-                                    <p class="text-[#c5a059] text-xs">Componentes</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Montaje - Llanta y Aro</h4>
+                                    <p class="text-[#c5a059] text-xs">Diseño de llantas y aro acoplados</p>
                                 </div>
                             </div>
                         </div>
@@ -148,8 +148,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño8.jpg" alt="Diseño 8" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Pruebas</h4>
-                                    <p class="text-[#c5a059] text-xs">Validación</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Fotos del Robot</h4>
+                                    <p class="text-[#c5a059] text-xs">Imágenes del prototipo en pruebas</p>
                                 </div>
                             </div>
                         </div>
@@ -157,8 +157,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño10.jpg" alt="Diseño 10" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Detalles</h4>
-                                    <p class="text-[#c5a059] text-xs">Acabados</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Fotos del Robot v2</h4>
+                                    <p class="text-[#c5a059] text-xs">Otra imagen del prototipo</p>
                                 </div>
                             </div>
                         </div>
@@ -166,8 +166,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño11.jpg" alt="Diseño 11" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Ruedas v1</h4>
-                                    <p class="text-[#c5a059] text-xs">Sistema inicial</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Fotos del Robot - Vista Superior</h4>
+                                    <p class="text-[#c5a059] text-xs">Imagen del robot vista desde arriba</p>
                                 </div>
                             </div>
                         </div>
@@ -175,8 +175,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño12.jpg" alt="Diseño 12" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Ruedas v2</h4>
-                                    <p class="text-[#c5a059] text-xs">Mejora tracción</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Fotos del Robot - Vista Frontal</h4>
+                                    <p class="text-[#c5a059] text-xs">Imagen del robot vista de frente</p>
                                 </div>
                             </div>
                         </div>
@@ -184,8 +184,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño13.jpg" alt="Diseño 13" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Ruedas v3</h4>
-                                    <p class="text-[#c5a059] text-xs">Versión final</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Fotos del Robot - Vista Lateral</h4>
+                                    <p class="text-[#c5a059] text-xs">Imagen del robot vista de lado</p>
                                 </div>
                             </div>
                         </div>
@@ -193,8 +193,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/ruedas4.jpeg" alt="Ruedas 4" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Ruedas v4</h4>
-                                    <p class="text-[#c5a059] text-xs">Optimización</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Evolución de Ruedas</h4>
+                                    <p class="text-[#c5a059] text-xs">Foto de varias versiones de ruedas</p>
                                 </div>
                             </div>
                         </div>
@@ -202,8 +202,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño14.jpg" alt="Diseño 14" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Iteración 3</h4>
-                                    <p class="text-[#c5a059] text-xs">Refinamiento</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Fotos del Robot v3</h4>
+                                    <p class="text-[#c5a059] text-xs">Imagen adicional del prototipo</p>
                                 </div>
                             </div>
                         </div>
@@ -212,8 +212,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño16.jpeg" alt="Diseño 16" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Resultado</h4>
-                                    <p class="text-[#c5a059] text-xs">Robot completo</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Estudiante Trabajando en el Robot</h4>
+                                    <p class="text-[#c5a059] text-xs">Miembro del equipo ensamblando el prototipo</p>
                                 </div>
                             </div>
                         </div>
@@ -221,8 +221,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño17.jpeg" alt="Diseño 17" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Prueba final</h4>
-                                    <p class="text-[#c5a059] text-xs">Validación</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Estudiante Trabajando v2</h4>
+                                    <p class="text-[#c5a059] text-xs">Otra foto del estudiante trabajando en el robot</p>
                                 </div>
                             </div>
                         </div>
@@ -230,8 +230,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/diseño18.jpeg" alt="Diseño 18" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Producto final</h4>
-                                    <p class="text-[#c5a059] text-xs">NITAINO</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Estudiante Trabajando v3</h4>
+                                    <p class="text-[#c5a059] text-xs">Foto adicional del estudiante con el robot</p>
                                 </div>
                             </div>
                         </div>
@@ -266,8 +266,8 @@ const anexosHTML = `
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
                                 <div class="p-4">
-                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prueba v1</h4>
-                                    <p class="text-xs" style="color: var(--terracotta);">Movimiento inicial</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Ojos que Ven</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">Video del funcionamiento de la cámara en acción</p>
                                 </div>
                             </div>
                         </div>
@@ -275,8 +275,8 @@ const anexosHTML = `
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                                 <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
                                 <div class="p-4">
-                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Prueba v2</h4>
-                                    <p class="text-xs" style="color: var(--terracotta);">Mejora respuesta</p>
+                                    <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Explorando lo Desconocido</h4>
+                                    <p class="text-xs" style="color: var(--terracotta);">El robot en acción dentro de una cueva</p>
                                 </div>
                             </div>
                         </div>
@@ -284,8 +284,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <video src="multimedia/maniobrabilidad3.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Prueba Final</h4>
-                                    <p class="text-[#c5a059] text-xs">Robot estable</p>
+                                    <h4 class="text-white text-base font-bold mb-1">De Vuelta en la Cueva</h4>
+                                    <p class="text-[#c5a059] text-xs">Segundo video del robot explorando en cueva</p>
                                 </div>
                             </div>
                         </div>
@@ -293,8 +293,8 @@ const anexosHTML = `
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
                                 <img src="multimedia/ruedas4.jpeg" alt="Ruedas" class="w-full h-48 object-cover">
                                 <div class="p-4">
-                                    <h4 class="text-white text-base font-bold mb-1">Sistema de Ruedas</h4>
-                                    <p class="text-[#c5a059] text-xs">Tracción optimizada</p>
+                                    <h4 class="text-white text-base font-bold mb-1">Detalle de Ruedas v2</h4>
+                                    <p class="text-[#c5a059] text-xs">Una mirada más cercana al sistema de tracción mejorado</p>
                                 </div>
                             </div>
                         </div>

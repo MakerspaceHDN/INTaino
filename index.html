@@ -454,6 +454,99 @@
         .text-base { font-size: 1.15rem !important; }
         .text-sm { font-size: 1.05rem !important; }
         .text-xs { font-size: 0.95rem !important; }
+
+        /* Menu Hamburguesa */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: var(--charcoal);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #F5F0E0;
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            letter-spacing: 0.1em;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--terracotta);
+            border-bottom-color: var(--terracotta);
+        }
+
+        .page-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-overlay.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
@@ -466,23 +559,38 @@
     </div>
 
     <!-- Navegación -->
-    <nav class="fixed w-full z-50 border-b border-stone-800 px-6 py-4 hidden md:block">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-[#c5a059] rounded-full flex items-center justify-center text-black font-bold">NI</div>
-                <span class="brand-font text-2xl tracking-widest text-[#c5a059]">NITAINO</span>
-            </div>
-            <div class="flex gap-6 text-xs tracking-wider">
-                <a href="#hero" class="text-stone-400 hover:text-[#c5a059] transition">Inicio</a>
-                <a href="#problema" class="text-stone-400 hover:text-[#c5a059] transition">Problema</a>
-                <a href="#investigacion" class="text-stone-400 hover:text-[#c5a059] transition">Investigación</a>
-                <a href="#solucion" class="text-stone-400 hover:text-[#c5a059] transition">Solución</a>
-                <a href="#prototipo" class="text-stone-400 hover:text-[#c5a059] transition">Prototipo</a>
-                <a href="#impacto" class="text-stone-400 hover:text-[#c5a059] transition">Impacto</a>
-                <a href="#anexos" class="text-stone-400 hover:text-[#c5a059] transition">Anexos</a>
-            </div>
+    <nav class="fixed w-full z-50 border-b border-stone-800 px-6 py-4 flex justify-between items-center" style="background: var(--parchment-light);">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-[#c5a059] rounded-full flex items-center justify-center text-black font-bold">NI</div>
+            <span class="brand-font text-2xl tracking-widest text-[#c5a059]">NITAINO</span>
+        </div>
+        <div class="hidden md:flex gap-6 text-xs tracking-wider">
+            <a href="#hero" class="text-stone-400 hover:text-[#c5a059] transition">Inicio</a>
+            <a href="#problema" class="text-stone-400 hover:text-[#c5a059] transition">Problema</a>
+            <a href="#investigacion" class="text-stone-400 hover:text-[#c5a059] transition">Investigación</a>
+            <a href="#solucion" class="text-stone-400 hover:text-[#c5a059] transition">Solución</a>
+            <a href="#prototipo" class="text-stone-400 hover:text-[#c5a059] transition">Prototipo</a>
+            <a href="#impacto" class="text-stone-400 hover:text-[#c5a059] transition">Impacto</a>
+            <a href="#anexos" class="text-stone-400 hover:text-[#c5a059] transition">Anexos</a>
+        </div>
+        <div class="hamburger md:hidden" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
+
+    <!-- Menu Hamburguesa Móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" onclick="closeMenu()">Inicio</a>
+        <a href="#problema" onclick="closeMenu()">Problema</a>
+        <a href="#investigacion" onclick="closeMenu()">Investigación</a>
+        <a href="#solucion" onclick="closeMenu()">Solución</a>
+        <a href="#prototipo" onclick="closeMenu()">Prototipo</a>
+        <a href="#impacto" onclick="closeMenu()">Impacto</a>
+        <a href="#anexos" onclick="closeMenu()">Anexos</a>
+    </div>
+    <div class="page-overlay" id="pageOverlay" onclick="closeMenu()"></div>
 
     <!-- 1. HERO PRINCIPAL -->
     <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden" style="background: linear-gradient(rgba(26,22,20,0.6), rgba(26,22,20,0.5)), url('multimedia/fondopagina.png'); background-size: cover; background-position: center;">
@@ -503,11 +611,7 @@
                 <span style="color: #FFFFFF;">|</span>
                 <span style="color: #FFFFFF !important;">Prototipo funcional para reducir riesgo humano y proteger patrimonio</span>
             </div>
-            <div class="flex flex-wrap justify-center gap-4 hero-item hero-7">
-                <a href="#solucion" class="bg-[#A45B41] text-[#FFFFFF] px-8 py-4 rounded-xl font-bold uppercase text-base tracking-widest hover:bg-[#83442E] transition">Ver solución</a>
-                <a href="#anexos" class="bg-[#A45B41] text-[#FFFFFF] px-8 py-4 rounded-xl font-bold uppercase text-base tracking-widest hover:bg-[#83442E] transition">Detalles técnicos</a>
-                <a href="#anexos" class="bg-[#A45B41] text-[#FFFFFF] px-8 py-4 rounded-xl font-bold uppercase text-base tracking-widest hover:bg-[#83442E] transition">Ver anexo técnico</a>
-            </div>
+            
         </div>
         <div class="absolute bottom-8 animate-bounce">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white"><path d="m6 9 6 6 6-6"/></svg>
@@ -803,6 +907,26 @@
             if (qr) {
                 qr.classList.toggle('hidden');
             }
+        }
+
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const pageOverlay = document.getElementById('pageOverlay');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            pageOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const pageOverlay = document.getElementById('pageOverlay');
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            pageOverlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
     </script>
 </body>

@@ -236,6 +236,9 @@ const anexosHTML = `
                             </div>
                         </div>
                     </div>
+                    <div style="text-align: center; margin-top: 12px; color: #A45B41; font-size: 14px; font-weight: 600;">
+                        &larr; Desliza &rarr;
+                    </div>
                     <button onclick="scrollCarousel('carousel-diseno', -1)" style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&larr;</button>
                     <button onclick="scrollCarousel('carousel-diseno', 1)" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&rarr;</button>
                 </div>
@@ -294,6 +297,9 @@ const anexosHTML = `
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 12px; color: #A45B41; font-size: 14px; font-weight: 600;">
+                        &larr; Desliza &rarr;
                     </div>
                     <button onclick="scrollCarousel('carousel-maniobrabilidad', -1)" style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&larr;</button>
                     <button onclick="scrollCarousel('carousel-maniobrabilidad', 1)" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&rarr;</button>

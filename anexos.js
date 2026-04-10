@@ -236,17 +236,11 @@ const anexosHTML = `
                             </div>
                         </div>
                     </div>
-                    <div class="md:hidden flex justify-center items-center gap-2 mt-3 text-sm font-semibold" style="color: var(--terracotta);">
-                        <span style="animation: bounce 1s infinite;">&#8594;</span>
+                    <div style="display: flex !important; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; color: #A45B41 !important; font-weight: 700 !important; font-size: 16px !important; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
                         <span>Desliza para ver más</span>
-                        <span style="animation: bounce 1s infinite;">&#8594;</span>
+                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
                     </div>
-                    <style>
-                        @keyframes bounce {
-                            0%, 100% { transform: translateX(0); }
-                            50% { transform: translateX(8px); }
-                        }
-                    </style>
                     <button onclick="scrollCarousel('carousel-diseno', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-10 hidden md:flex bg-black text-white hover:bg-gray-800">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
                     </button>
@@ -310,10 +304,10 @@ const anexosHTML = `
                             </div>
                         </div>
                     </div>
-                    <div class="md:hidden flex justify-center items-center gap-2 mt-3 text-sm font-semibold" style="color: var(--terracotta);">
-                        <span style="animation: bounce 1s infinite;">&#8594;</span>
+                    <div style="display: flex !important; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; color: #A45B41 !important; font-weight: 700 !important; font-size: 16px !important; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
                         <span>Desliza para ver más</span>
-                        <span style="animation: bounce 1s infinite;">&#8594;</span>
+                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
                     </div>
                     <button onclick="scrollCarousel('carousel-maniobrabilidad', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition z-10 hidden md:flex">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>

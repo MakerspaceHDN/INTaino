@@ -441,6 +441,11 @@
             50% { transform: translateX(8px); }
         }
 
+        @keyframes swipeHint {
+            0%, 100% { transform: translateX(0); opacity: 1; }
+            50% { transform: translateX(10px); opacity: 0.7; }
+        }
+
         .hero-item {
             opacity: 0;
             animation: heroFadeIn 1s ease-out forwards;

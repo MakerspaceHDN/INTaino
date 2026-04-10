@@ -457,10 +457,12 @@
 
         /* Menu Hamburguesa */
         .mobile-menu {
+            visibility: hidden;
+            opacity: 0;
             position: fixed;
             top: 70px;
             left: 50%;
-            transform: translateX(-50%) translateX(100%);
+            transform: translateX(-50%);
             width: 90%;
             max-width: 320px;
             background: linear-gradient(rgba(26,22,20,0.95), rgba(26,22,20,0.9));
@@ -469,11 +471,12 @@
             z-index: 2000;
             padding: 15px 1rem 1rem;
             box-sizing: border-box;
-            transition: transform 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .mobile-menu.active {
-            transform: translateX(-50%) translateX(0);
+            visibility: visible;
+            opacity: 1;
         }
 
         .mobile-menu-close {
@@ -515,18 +518,21 @@
         }
 
         .page-overlay {
+            visibility: hidden;
+            opacity: 0;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: transparent;
+            background-color: rgba(0,0,0,0.5);
             z-index: 1999;
-            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .page-overlay.active {
-            pointer-events: auto;
+            visibility: visible;
+            opacity: 1;
         }
 
         .hamburger {
@@ -565,8 +571,8 @@
         }
 
         @media (min-width: 769px) {
-            .hamburger, .page-overlay {
-                display: none;
+            .hamburger, .page-overlay, .mobile-menu {
+                display: none !important;
             }
         }
     </style>
@@ -951,6 +957,10 @@
             pageOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
     </script>
 </body>
 </html>

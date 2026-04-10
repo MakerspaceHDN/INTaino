@@ -186,49 +186,6 @@
             background-color: var(--parchment-light) !important;
         }
 
-        /* QR Flotante estilo pergamino */
-        .qr-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            cursor: pointer;
-            transition: transform 0.3s var(--ease-museum);
-        }
-
-        .qr-float:hover {
-            transform: scale(1.05);
-        }
-
-        .qr-float-content {
-            background: var(--parchment-light);
-            border: 3px double var(--terracotta);
-            border-radius: 0;
-            padding: 16px;
-            box-shadow: 
-                0 10px 40px rgba(44, 36, 27, 0.2),
-                inset 0 0 0 1px var(--parchment-border);
-            text-align: center;
-        }
-
-        .qr-float img {
-            width: 180px;
-            height: 180px;
-            border-radius: 0;
-            border: 2px solid var(--terracotta);
-            filter: sepia(0.2);
-        }
-
-        .qr-float-text {
-            color: var(--terracotta);
-            font-family: 'Cinzel', serif;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 12px;
-            font-weight: 600;
-        }
-
         /* Textos de tarjetas */
         .card-cave h3, .card-cave h4 {
             font-size: 1.4rem !important;
@@ -588,14 +545,6 @@
     </style>
 </head>
 <body>
-    <!-- QR Code Flotante -->
-    <div class="qr-float" onclick="toggleQR()">
-        <div class="qr-float-content">
-            <img src="multimedia/QRCode.png" alt="QR Code">
-            <div class="qr-float-text">Escanea nuestra página</div>
-        </div>
-    </div>
-
     <!-- Navegación -->
     <nav class="fixed w-full z-50 border-b border-stone-800 px-6 py-4 flex justify-between items-center" style="background: var(--parchment-light);">
         <div class="flex items-center gap-2">
@@ -940,13 +889,6 @@
                 }
             });
         });
-
-        function toggleQR() {
-            const qr = document.querySelector('.qr-float-content');
-            if (qr) {
-                qr.classList.toggle('hidden');
-            }
-        }
 
         function toggleMenu() {
             const hamburger = document.querySelector('.hamburger');

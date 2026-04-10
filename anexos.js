@@ -236,17 +236,8 @@ const anexosHTML = `
                             </div>
                         </div>
                     </div>
-                    <div style="display: flex !important; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; color: #A45B41 !important; font-weight: 700 !important; font-size: 16px !important; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
-                        <span>Desliza para ver más</span>
-                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
-                    </div>
-                    <button onclick="scrollCarousel('carousel-diseno', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-10 hidden md:flex bg-black text-white hover:bg-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-                    </button>
-                    <button onclick="scrollCarousel('carousel-diseno', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition z-10 hidden md:flex bg-black text-white hover:bg-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-                    </button>
+                    <button onclick="scrollCarousel('carousel-diseno', -1)" style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&larr;</button>
+                    <button onclick="scrollCarousel('carousel-diseno', 1)" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&rarr;</button>
                 </div>
             </div>
 
@@ -304,17 +295,8 @@ const anexosHTML = `
                             </div>
                         </div>
                     </div>
-                    <div style="display: flex !important; justify-content: center; align-items: center; gap: 12px; margin-top: 16px; color: #A45B41 !important; font-weight: 700 !important; font-size: 16px !important; padding: 8px; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
-                        <span>Desliza para ver más</span>
-                        <span style="animation: swipeHint 1s infinite; font-size: 20px;">&rarr;</span>
-                    </div>
-                    <button onclick="scrollCarousel('carousel-maniobrabilidad', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition z-10 hidden md:flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-                    </button>
-                    <button onclick="scrollCarousel('carousel-maniobrabilidad', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition z-10 hidden md:flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
-                    </button>
+                    <button onclick="scrollCarousel('carousel-maniobrabilidad', -1)" style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&larr;</button>
+                    <button onclick="scrollCarousel('carousel-maniobrabilidad', 1)" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #A45B41; color: white; border: none; cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">&rarr;</button>
                 </div>
             </div>
         </div>

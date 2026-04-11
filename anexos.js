@@ -32,8 +32,8 @@ const anexosHTML = `
                         <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" loop></video>
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent); color: #FFFFFF;">
-                        <h4 class="text-2xl font-bold mb-1" style="color: #FFFFFF;">Presentación completa del prototipo</h4>
-                        <p class="text-base" style="color: #FFFFFF;">Video del Proyecto NITAINO</p>
+                        <h4 class="text-2xl font-bold mb-1" style="color: #FFFFFF;">Equipo Synergy - Presentación</h4>
+                        <p class="text-base" style="color: #FFFFFF;">Integrantes del equipo durante la presentación oficial</p>
                     </div>
                     <p class="text-center text-sm text-white mt-2 italic" style="background: rgba(44,36,27,0.9); padding: 8px;">Mantenga el cursor sobre el video para mantenerlo reproduciéndose</p>
                 </div>
@@ -43,8 +43,8 @@ const anexosHTML = `
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team.jpeg" alt="Team" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold text-white">Integrantes del equipo durante la presentación oficial</h4>
-                            <p class="text-xs mt-1" style="color: var(--terracotta);">Equipo Synergy - Presentación</p>
+                            <h4 class="text-sm font-bold text-white">Video del Proyecto NITAINO</h4>
+                            <p class="text-xs mt-1" style="color: var(--terracotta);">Presentación completa del prototipo</p>
                         </div>
                     </div>
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">

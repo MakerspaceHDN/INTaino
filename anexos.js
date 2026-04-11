@@ -43,7 +43,7 @@ const anexosHTML = `
                     <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
                         <img src="multimedia/team.jpeg" alt="Team" class="w-full h-56 object-contain">
                         <div class="p-4">
-                            <h4 class="text-sm font-bold text-white">Video del Proyecto NITAINO</h4>
+                            <h4 class="text-sm font-bold text-white">Demostrando que funciona la cosa!</h4>
                             <p class="text-xs mt-1" style="color: var(--terracotta);">Presentación completa del prototipo</p>
                         </div>
                     </div>

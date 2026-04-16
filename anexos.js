@@ -29,14 +29,13 @@ const anexosHTML = `
                 <!-- Video Protagonista -->
                 <div class="relative rounded-2xl overflow-hidden mb-8 group">
                     <div class="aspect-video rounded-2xl border-2 overflow-hidden" style="border-color: var(--terracotta); background: var(--parchment-dark);">
-                        <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" loop></video>
+                        <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" loop autoplay muted></video>
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent); color: #FFFFFF;">
                         <h4 class="text-2xl font-bold mb-1" style="color: #FFFFFF;">Equipo Synergy - Presentación</h4>
                         <p class="text-base" style="color: #FFFFFF;">Integrantes del equipo durante la presentación oficial</p>
                     </div>
-                    <p class="text-center text-sm text-white mt-2 italic" style="background: rgba(44,36,27,0.9); padding: 8px;">Mantenga el cursor sobre el video para mantenerlo reproduciéndose</p>
-                </div>
+                    </div>
                 
                 <!-- Grid de Imágenes Team -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -308,7 +307,6 @@ function renderAnexos() {
     if (footer) {
         footer.insertAdjacentHTML('beforebegin', anexosHTML);
         initParticles();
-        initVideoHero();
     }
 }
 
@@ -361,15 +359,4 @@ function initParticles() {
     document.head.appendChild(style);
 }
 
-function initVideoHero() {
-    const video = document.getElementById('team-video-hero');
-    if (!video) return;
-    
-    video.addEventListener('mouseenter', () => {
-        video.play().catch(() => {});
-    });
-    
-    video.addEventListener('mouseleave', () => {
-        video.pause();
-    });
-}
+

@@ -313,45 +313,44 @@ function renderAnexos() {
         footer.insertAdjacentHTML('beforebegin', anexosHTML);
         initParticles();
         
-        // Play all videos
+        // Intersection Observer para reproducir videos solo cuando son visibles
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    video.muted = true;
+                    video.play().catch(() => {});
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+
         document.querySelectorAll('video').forEach(video => {
-            video.muted = true;
-            video.play().catch(() => {});
+            observer.observe(video);
         });
 
         const heroVideo = document.getElementById('team-video-hero');
         const audioBtn = document.getElementById('toggle-audio-hero');
         const audioIcon = document.getElementById('audio-icon-hero');
 
-        if (heroVideo) {
-            heroVideo.muted = true; 
-            heroVideo.volume = 1.0;
-            heroVideo.play().catch(() => {});
-        }
-
-        if (audioBtn && heroVideo && audioIcon) {
-            audioIcon.textContent = heroVideo.muted ? '🔇' : '🔊';
-            audioBtn.addEventListener('click', () => {
-                heroVideo.muted = !heroVideo.muted;
+        if (heroVideo && audioBtn && audioIcon) {
+            heroVideo.muted = true;
+            audioIcon.textContent = '🔇';
+            
+            audioBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isMuted = heroVideo.muted;
+                heroVideo.muted = !isMuted;
+                heroVideo.volume = 1.0;
+                if (!isMuted) {
+                    heroVideo.play().catch(() => {});
+                }
                 audioIcon.textContent = heroVideo.muted ? '🔇' : '🔊';
             });
         }
     }
 }
-
-// Desmutear solo el video hero al primer clic o interacción en la página
-const unmuteHero = () => {
-    const heroVideo = document.getElementById('team-video-hero');
-    if (heroVideo) {
-        heroVideo.muted = false;
-        heroVideo.volume = 1.0;
-        heroVideo.play();
-    }
-};
-
-['click', 'touchstart', 'keydown'].forEach(evt => 
-    document.addEventListener(evt, unmuteHero, { once: true })
-);
 
 document.addEventListener('DOMContentLoaded', renderAnexos);
 

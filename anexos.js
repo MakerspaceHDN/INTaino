@@ -261,7 +261,9 @@ const anexosHTML = `
                     <div class="carousel-move flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="carousel-maniobrabilidad">
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
-                                <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop playsinline preload="auto"></video>
+                                <video id="video-maniobrabilidad" class="w-full h-48 object-cover" muted loop playsinline preload="auto">
+                                    <source src="multimedia/maniobrabilidad.MP4" type="video/mp4">
+                                </video>
                                 <div class="p-4">
                                     <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Ojos que Ven</h4>
                                     <p class="text-xs" style="color: var(--terracotta);">Video del funcionamiento de la cámara en acción</p>
@@ -311,23 +313,24 @@ function renderAnexos() {
         footer.insertAdjacentHTML('beforebegin', anexosHTML);
         initParticles();
         
+        // Play all videos
+        document.querySelectorAll('video').forEach(video => {
+            video.muted = true;
+            video.play().catch(() => {});
+        });
+
         const heroVideo = document.getElementById('team-video-hero');
         const audioBtn = document.getElementById('toggle-audio-hero');
         const audioIcon = document.getElementById('audio-icon-hero');
 
         if (heroVideo) {
-            // Empezamos muteado para garantizar el autoplay
             heroVideo.muted = true; 
             heroVideo.volume = 1.0;
-            heroVideo.play().catch(() => {
-                console.log("Error en autoplay");
-            });
+            heroVideo.play().catch(() => {});
         }
 
         if (audioBtn && heroVideo && audioIcon) {
-            // Sincronizar icono inicial
             audioIcon.textContent = heroVideo.muted ? '🔇' : '🔊';
-
             audioBtn.addEventListener('click', () => {
                 heroVideo.muted = !heroVideo.muted;
                 audioIcon.textContent = heroVideo.muted ? '🔇' : '🔊';

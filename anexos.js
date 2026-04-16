@@ -261,7 +261,7 @@ const anexosHTML = `
                     <div class="carousel-move flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="carousel-maniobrabilidad">
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
-                                <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
+                                <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop playsinline preload="auto"></video>
                                 <div class="p-4">
                                     <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Ojos que Ven</h4>
                                     <p class="text-xs" style="color: var(--terracotta);">Video del funcionamiento de la cámara en acción</p>
@@ -270,7 +270,7 @@ const anexosHTML = `
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
-                                <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
+                                <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop playsinline preload="auto"></video>
                                 <div class="p-4">
                                     <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Explorando lo Desconocido</h4>
                                     <p class="text-xs" style="color: var(--terracotta);">El robot en acción dentro de una cueva</p>
@@ -279,7 +279,7 @@ const anexosHTML = `
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                                <video src="multimedia/maniobrabilidad3.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
+                                <video src="multimedia/maniobrabilidad3.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop playsinline preload="auto"></video>
                                 <div class="p-4">
                                     <h4 class="text-white text-base font-bold mb-1">De Vuelta en la Cueva</h4>
                                     <p class="text-[#c5a059] text-xs">Segundo video del robot explorando en cueva</p>

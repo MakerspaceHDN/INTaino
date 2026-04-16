@@ -28,7 +28,10 @@ const anexosHTML = `
                 
                 <!-- Video Protagonista -->
                 <div class="relative rounded-2xl overflow-hidden mb-8 group">
-                    <div class="aspect-video rounded-2xl border-2 overflow-hidden" style="border-color: var(--terracotta); background: var(--parchment-dark);">
+                    <div class="aspect-video rounded-2xl border-2 overflow-hidden relative" style="border-color: var(--terracotta); background: var(--parchment-dark);">
+                        <button id="toggle-audio-hero" class="absolute top-4 right-4 z-50 p-3 rounded-full bg-black/60 text-white hover:bg-black/80 transition-all backdrop-blur-md border border-white/30 shadow-lg" title="Activar/Desactivar Audio">
+                            <span id="audio-icon-hero" class="text-xl">🔇</span>
+                        </button>
                         <video id="team-video-hero" src="multimedia/IMG_4898.mp4" class="w-full h-full object-cover" loop autoplay muted></video>
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 p-6" style="background: linear-gradient(to top, rgba(44,36,27,0.9), transparent); color: #FFFFFF;">
@@ -258,7 +261,7 @@ const anexosHTML = `
                     <div class="carousel-move flex gap-4 overflow-x-auto pb-4 scrollbar-hide" id="carousel-maniobrabilidad">
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
-                                <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
+                                <video src="multimedia/maniobrabilidad.MP4" class="w-full h-48 object-cover" autoplay disablePictureInPicture loop></video>
                                 <div class="p-4">
                                     <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Ojos que Ven</h4>
                                     <p class="text-xs" style="color: var(--terracotta);">Video del funcionamiento de la cámara en acción</p>
@@ -267,7 +270,7 @@ const anexosHTML = `
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="rounded-xl border overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-lg" style="background: var(--parchment-light); border-color: var(--parchment-border);">
-                                <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
+                                <video src="multimedia/maniobrabilidad2.mp4" class="w-full h-48 object-cover" autoplay disablePictureInPicture loop></video>
                                 <div class="p-4">
                                     <h4 class="text-base font-bold mb-1" style="color: var(--charcoal);">Explorando lo Desconocido</h4>
                                     <p class="text-xs" style="color: var(--terracotta);">El robot en acción dentro de una cueva</p>
@@ -276,7 +279,7 @@ const anexosHTML = `
                         </div>
                         <div class="carousel-item min-w-[280px] md:min-w-[300px] flex-shrink-0">
                             <div class="bg-stone-800/50 rounded-xl border border-stone-700 overflow-hidden hover:border-[#c5a059] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#c5a059]/20">
-                                <video src="multimedia/maniobrabilidad3.mp4" class="w-full h-48 object-cover" autoplay muted disablePictureInPicture loop></video>
+                                <video src="multimedia/maniobrabilidad3.mp4" class="w-full h-48 object-cover" autoplay disablePictureInPicture loop></video>
                                 <div class="p-4">
                                     <h4 class="text-white text-base font-bold mb-1">De Vuelta en la Cueva</h4>
                                     <p class="text-[#c5a059] text-xs">Segundo video del robot explorando en cueva</p>
@@ -307,8 +310,45 @@ function renderAnexos() {
     if (footer) {
         footer.insertAdjacentHTML('beforebegin', anexosHTML);
         initParticles();
+        
+        const heroVideo = document.getElementById('team-video-hero');
+        const audioBtn = document.getElementById('toggle-audio-hero');
+        const audioIcon = document.getElementById('audio-icon-hero');
+
+        if (heroVideo) {
+            // Empezamos muteado para garantizar el autoplay
+            heroVideo.muted = true; 
+            heroVideo.volume = 1.0;
+            heroVideo.play().catch(() => {
+                console.log("Error en autoplay");
+            });
+        }
+
+        if (audioBtn && heroVideo && audioIcon) {
+            // Sincronizar icono inicial
+            audioIcon.textContent = heroVideo.muted ? '🔇' : '🔊';
+
+            audioBtn.addEventListener('click', () => {
+                heroVideo.muted = !heroVideo.muted;
+                audioIcon.textContent = heroVideo.muted ? '🔇' : '🔊';
+            });
+        }
     }
 }
+
+// Desmutear solo el video hero al primer clic o interacción en la página
+const unmuteHero = () => {
+    const heroVideo = document.getElementById('team-video-hero');
+    if (heroVideo) {
+        heroVideo.muted = false;
+        heroVideo.volume = 1.0;
+        heroVideo.play();
+    }
+};
+
+['click', 'touchstart', 'keydown'].forEach(evt => 
+    document.addEventListener(evt, unmuteHero, { once: true })
+);
 
 document.addEventListener('DOMContentLoaded', renderAnexos);
 
